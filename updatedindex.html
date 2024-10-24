@@ -146,10 +146,10 @@
             font-weight: 900;
             text-transform: uppercase;
             position: relative;
-            text-shadow: 
+            /* text-shadow: 
                 2px 2px var(--accent),
-                -2px -2px #ff00ff;
-            animation: glitch 1s infinite;
+                -2px -2px #ff00ff; */
+            /* animation: glitch 1s infinite; */
         }
 
         @keyframes glitch {
@@ -274,7 +274,7 @@
         input:focus, textarea:focus {
             outline: none;
             background: rgba(255,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,255,163,0.2);
+            box-shadow: 0 0 20px rgba(33, 34, 34, 0.277);
         }
 
         button {
@@ -323,7 +323,7 @@
 
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 class="glitch-text">Creative Dev</h1>
+            <h1 class="glitch-text">Kareem</h1>
         </div>
     </section>
 
@@ -333,14 +333,14 @@
                 <div class="project-image">
                     <img src="/api/placeholder/400/300" alt="Project 1">
                 </div>
-                <h3 class="project-title">Project One</h3>
+                <h3 class="project-title">DealMate</h3>
                 <p>Interactive web application with real-time data visualization</p>
             </div>
             <div class="project-card">
                 <div class="project-image">
                     <img src="/api/placeholder/400/300" alt="Project 2">
                 </div>
-                <h3 class="project-title">Project Two</h3>
+                <h3 class="project-title">PitchPerfect</h3>
                 <p>AI-powered user interface with machine learning integration</p>
             </div>
             <div class="project-card">
@@ -573,11 +573,11 @@
         });
 
         // Dynamic background color based on scroll position
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            const hue = Math.floor(scrollPercent * 3.6); // 360 degrees / 100
-            document.documentElement.style.setProperty('--accent', `hsl(${hue}, 100%, 50%)`);
-        });
+        // window.addEventListener('scroll', () => {
+        //     const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        //     const hue = Math.floor(scrollPercent * 3.6); // 360 degrees / 100
+        //     document.documentElement.style.setProperty('--accent', `hsl(${hue}, 100%, 50%)`);
+        // });
 
         // Performance optimization
         let ticking = false;
