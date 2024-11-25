@@ -129,6 +129,31 @@
             background: var(--accent);
         }
 
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--accent);
+        }
+
         section {
             min-height: 100vh;
             padding: 2rem;
@@ -139,6 +164,7 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.5s;
+            padding-top: 5rem;
         }
 
         section.visible {
@@ -288,6 +314,11 @@
 <body>
     <div class="cursor"></div>
     
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="hackathons.html">Hackathons</a>
+    </nav>
+
     <div class="loader">
         <div class="progress-bar">
             <div class="progress"></div>
@@ -358,7 +389,7 @@
             cursor.style.top = e.clientY + 'px';
         });
 
-        document.querySelectorAll('a, button, .nav-dot, .skill-tag, .project-card').forEach(el => {
+        document.querySelectorAll('a, button, .nav-dot, .skill-tag, .project-card, .navbar a').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
