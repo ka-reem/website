@@ -394,22 +394,28 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
 
-        // Loading animation
+        // Modified loading animation
         const loader = document.querySelector('.loader');
         const progress = document.querySelector('.progress');
         let loaded = 0;
 
-        const fakeLoading = setInterval(() => {
-            loaded += Math.random() * 30;
-            if (loaded > 100) {
-                loaded = 100;
-                clearInterval(fakeLoading);
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 500);
-            }
-            progress.style.width = loaded + '%';
-        }, 200);
+        // Only show loader if it's the first visit this session
+        if (!sessionStorage.getItem('firstLoadDone')) {
+            const fakeLoading = setInterval(() => {
+                loaded += Math.random() * 30;
+                if (loaded > 100) {
+                    loaded = 100;
+                    clearInterval(fakeLoading);
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                        sessionStorage.setItem('firstLoadDone', '1');
+                    }, 500);
+                }
+                progress.style.width = loaded + '%';
+            }, 200);
+        } else {
+            loader.classList.add('hidden');
+        }
 
         // Scroll animations
         const sections = document.querySelectorAll('section');
@@ -469,7 +475,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Project card 3D effect //claude random
+        // Project card 3D effect 
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
