@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackathons - Work in Progress</title>
+    <title>Hackathon Journey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --accent: #00ffa3;
             --dark: #0a0a0a;
             --light: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --winner-gradient: linear-gradient(45deg, #ffd700, #ffa500);
         }
 
         * {
@@ -24,10 +25,7 @@
             background: var(--dark);
             color: var(--light);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding-top: 80px;
         }
 
         .navbar {
@@ -40,7 +38,7 @@
             justify-content: flex-start;
             gap: 2rem;
             z-index: 100;
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
         }
 
@@ -55,32 +53,121 @@
             color: var(--accent);
         }
 
-        .content {
+        .header {
             text-align: center;
             padding: 2rem;
+            margin-bottom: 2rem;
         }
 
-        h1 {
+        .header h1 {
             font-size: 3rem;
-            margin-bottom: 1rem;
             color: var(--accent);
+            margin-bottom: 1rem;
         }
 
-        p {
+        .header p {
             font-size: 1.2rem;
             opacity: 0.8;
         }
 
-        .construction-icon {
-            font-size: 5rem;
-            margin-bottom: 2rem;
-            color: var(--accent);
-            animation: bounce 2s infinite;
+        .hackathons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .hackathon-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hackathon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .winner-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--winner-gradient);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .hackathon-card h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .hackathon-card .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hackathon-card .description {
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: rgba(0, 255, 163, 0.1);
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .stats {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -90,11 +177,201 @@
         <a href="hackathons.html">Hackathons</a>
     </nav>
 
-    <div class="content">
-        <i class="fas fa-tools construction-icon"></i>
-        <h1>Uh oh!</h1>
-        <p>This page is still under construction.</p>
-        <p>Check back soon for updates about my hackathon experiences!</p>
+    <div class="header">
+        <h1>My Hackathon Journey</h1>
+        <!-- <p>Catchy phrase here</p> -->
+    <!-- </div> -->
+
+    <div class="stats">
+        <h2>Yearly Hackathon Stats</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="number">22</div>
+                <div class="label">Total Hackathons</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">2024</div>
+                <div class="label">Year</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hackathons-grid">
+        <div class="hackathon-card">
+            <h2>CalHacks</h2>
+            <div class="date">October 18, 2023</div>
+            <div class="description">
+                One of the largest collegiate hackathons hosted at UC Berkeley.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Berkeley AI Hack for Good</h2>
+            <div class="description">
+                A hackathon focused on leveraging AI for social impact and positive change.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>SFHacks</h2>
+            <div class="description">
+                San Francisco's premier hackathon event.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>AI Hackathon @ Pier</h2>
+            <div class="description">
+                An AI-focused hackathon event held at the Pier.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>AI Hack AZ Shopper</h2>
+            <div class="description">
+                A hackathon focused on AI solutions for shopping and retail.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Supaheroes AI Hack</h2>
+            <div class="description">
+                An AI-themed hackathon event.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Easy A Block Chain</h2>
+            <div class="description">
+                A blockchain-focused hackathon event.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Frames Hackathon @ Niantic</h2>
+            <div class="description">
+                A hackathon hosted by Niantic focusing on AR/VR frames.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Friend AI Hackathon</h2>
+            <div class="description">
+                A hackathon centered around AI and social connections.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Compound AI Hackathon @ AWS</h2>
+            <div class="date">September 6, 2023</div>
+            <div class="description">
+                An AI hackathon hosted on AWS platform.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <!-- <div class="winner-badge">WINNER</div> -->
+            <h2>Buildathon @ Cloudflare</h2>
+            <div class="date">September 7, 2023</div>
+            <div class="description">
+                A successful hackathon event at Cloudflare that resulted in a winning project.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <!-- <div class="winner-badge">WINNER</div> -->
+            <h2>MindsDB Hackathon</h2>
+            <div class="description">
+                A winning project at the MindsDB-sponsored hackathon.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <!-- <div class="winner-badge">WINNER</div> -->
+            <h2>AIify Hackathon</h2>
+            <div class="description">
+                Another successful hackathon resulting in a winning project.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>General Lithium Hackathon</h2>
+            <div class="description">
+                Participated and completed homework assignment.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Bits and Bills Hackathon</h2>
+            <div class="date">October 6, 2023</div>
+            <div class="description">
+                Created a scholarship-related project.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Founders Inc Hackathon</h2>
+            <div class="date">October 9-11, 2023</div>
+            <div class="description">
+                Contributed to the "unrepped" project.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>AGI House Pitch Perfect</h2>
+            <div class="date">October 13, 2023</div>
+            <div class="description">
+                An AI-focused pitch competition.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Tech Crunch Hackathon</h2>
+            <div class="description">
+                Developed "Creeper Code" project.
+                <div class="note">Date in October (specific date not provided)</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>SF Code Jam</h2>
+            <div class="date">November 2, 2023</div>
+            <div class="description">
+                Participated in presentation and game jam submission.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Human in the Loop AI Hackathon</h2>
+            <div class="date">November 3, 2023</div>
+            <div class="description">
+                At Weights & Biases, attempted to break Gemini.
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>Llama Hackathon</h2>
+            <div class="description">
+                A hackathon focused on Llama AI models.
+                <div class="note">Additional details not provided</div>
+            </div>
+        </div>
+
+        <div class="hackathon-card">
+            <h2>YC Supabase Hackathon</h2>
+            <div class="date">November 22-23, 2023</div>
+            <div class="description">
+                A hackathon sponsored by Y Combinator and Supabase.
+            </div>
+        </div>
     </div>
 </body>
 </html>
